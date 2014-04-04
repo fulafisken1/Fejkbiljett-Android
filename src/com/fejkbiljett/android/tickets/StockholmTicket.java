@@ -107,7 +107,7 @@ public class StockholmTicket extends Ticket {
 		mMonth = Utils.gAlphabet[cal.get(Calendar.MONTH)];
 
 		cal.add(Calendar.MINUTE, (twohours ? 120 : 75));
-		mTime = new SimpleDateFormat("HH:mm").format(cal.getTime());
+		mTime = new SimpleDateFormat("HH:mm,").format(cal.getTime());
 		mDate = new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime());
 
 		if (mZones.equals("L")) {
@@ -126,7 +126,7 @@ public class StockholmTicket extends Ticket {
 			sPriceType = "H";
 			sPriceText = "Helt pris";
 			
-			sCode = Utils.generateRandomString(11, false)
+			sCode = Utils.generateRandomString(6, false) + " " + Utils.generateRandomString(5, false)
 					+ gNumbers[0] + gNumbers[1] + gNumbers[2];
 				String hexCode = Utils.decToHex(sCode);
 				sAEOX = Utils.hexToAEOX(hexCode);
